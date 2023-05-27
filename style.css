@@ -1,0 +1,267 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-size: 62, 5%;
+}
+
+:root {
+  --ff-heading: 'Staatliches', sans-serif;
+  --ff-texting: 'Palanquin', sans-serif;
+
+  --bg-header: #8E9AAF;
+  --bg-title: #CBC0D3;
+  --bg-body: #EFF1FF;
+  --bg-heading-sm: #FEEAFA;
+
+  --fc-header: #FFFFFF;
+  --fc-body: #23053A;
+  --fc-body-heading: #4A4E69;
+
+  --fs-heading: clamp(3rem, 1rem + 5vw, 4rem);
+  --fs-heding-sm: 2rem;
+}
+
+body {
+  font-size: var(--fs-heding-sm);
+  max-height: 100VW;
+}
+
+.page {
+  width: 23rem;
+  margin: 0 auto;
+}
+
+header {
+  background-color: var(--bg-header);
+  color: var(--fc-header);
+  text-align: center;
+}
+
+header h1 {
+  background-color: var(--bg-title);
+  font-family: var(--ff-heading);
+  font-weight: 400;
+  font-size: var(--fs-heading);
+  line-height: 3.4rem;
+  letter-spacing: 0.05em;
+  margin-top: 40px;
+
+  padding: 1rem 4rem;
+  text-align: center;
+  white-space: nowrap;
+}
+
+header p {
+  display: none;
+}
+
+main {
+  background-color: var(--bg-body);
+  display: grid;
+  gap: 3.2rem;
+  text-align: center;
+  width: 100%;
+  text-align: center;
+  padding: 1.4rem 3rem 6rem;
+}
+
+main p {
+  color: var(--fc-body);
+  font-family: var(--ff-texting);
+  font-weight: 400;
+  font-size: var(--fs-heding-sm);
+  line-height: 2.5rem;
+  text-align: center;
+}
+
+.card {
+  position: relative;
+  animation: downTop 800ms ease-out;
+}
+
+.card img {
+  object-fit: cover;
+  width: 100%;
+  border-radius: 2rem;
+
+  transition: all 200ms;
+}
+
+.card img:hover {
+  transform: scale(1.1);
+}
+
+.card h3 {
+  background-color: var(--bg-heading-sm);
+  border-radius: 2rem;
+  color: var(--fc-body-heading);
+  font-size: var(--fs-heding-sm);
+  font-family: var(--ff-heading);
+  font-weight: 400;
+  height: 3.2rem;
+  line-height: 34px;
+  position: absolute;
+  top: 17px;
+  right: 16px;
+  padding: 0 2rem;
+  display: inline-flex;
+  align-items: center;
+
+  animation: topDown 800ms 1s backwards ease-in;
+}
+
+footer {
+  display: none;
+}
+
+@keyframes topDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translatey(0);
+  }
+}
+
+@keyframes downTop {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translatey(0);
+  }
+}
+
+@media (min-width: 700px) {
+  .page {
+    width: 50rem;
+  }
+  main {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 'P P' 'A B' 'C D' 'E F' ;
+  }
+
+  main :nth-child(1) {
+    grid-area: P;
+  }
+
+  main :nth-child(2) {
+    grid-area: A;
+  }
+
+  main :nth-child(3) {
+    grid-area: B;
+  }
+
+  main :nth-child(4) {
+    grid-area: C;
+  }
+
+  main :nth-child(5) {
+    grid-area: D;
+  }
+
+  main :nth-child(6) {
+    grid-area: E;
+  }
+
+  main :nth-child(7) {
+    grid-area: F;
+  }
+
+  main img {
+    height: 100%;
+  }
+
+}
+
+
+@media (min-width: 1200px) {
+  .page {
+    width: 100rem;
+    
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+  }
+
+  header p {
+    display: block;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 20px;
+
+    margin: 5rem 5rem 10rem;
+    text-align: center;
+  }
+
+  main {
+    padding: 64px;
+    background-color: var(--fc-header);
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: 'A B C'
+      'D B E' 'D F E' 'G G G';
+    gap: 3.2rem;
+    position: relative;
+  }
+
+  main :nth-child(2) {
+    grid-area: A;
+  }
+
+  main :nth-child(3) {
+    grid-area: B;
+  }
+
+  main :nth-child(4) {
+    grid-area: C;
+  }
+
+  main :nth-child(5) {
+    grid-area: D;
+  }
+
+  main :nth-child(6) {
+    grid-area: E;
+  }
+
+  main :nth-child(7) {
+    grid-area: F;
+  }
+
+  main :nth-child(8) {
+    grid-area: G;
+  }
+
+  main p {
+    display: none;
+  }
+
+  footer {
+    display: block;
+    font-weight: 400;
+    text-align: center;
+    margin-top: 5rem ;
+  }
+
+  footer, a {
+    color: var(--fc-body-heading);
+    font-size: 14px;
+    line-height: 28px;
+    font-family: 'Open Sans';
+  }
+
+  a {
+    text-decoration: none;
+    font-weight: 700;
+  }
+
+}
